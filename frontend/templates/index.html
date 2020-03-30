@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div id="inject-here"></div>
+    <div id="map"></div>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Google Maps - Marker Clusterer -->
+    <script src="js/markerclusterer.js"></script>
+    <script src="js/map.js?v=2017-03-30-13h25"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUdhUGtsfsEXGYVTGjaLFG1mdhAR1XgBY&callback=initMap">
+    </script>
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Use title if it's in the page YAML frontmatter -->
+  <title>TOP 5 | MTL</title>
+
+  <link rel="stylesheet" type="text/css" href="Project.css?v=2017-03-30-13h25">
+
+  <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ=" crossorigin="anonymous"></script>
+  <script>
+    // Change this to API's URL
+    var baseUrl = 'http://demos.ralrom.com/top5mtl';
+  </script>
+</head>
+
+<body style="font-family: arial;" class="{{body_class}}">
+  <section class="mainSection">
+    <header class="cf">
+      <a class="logo" href="/top5">
+        <img class="logo__img" src="images/top5.png">
+      </a>
+      <nav class="menu">
+        <ul>
+          <li><a href="/top5"> HOME </a></li>
+          <li><a href="/top5/about.php"> ABOUT </a></li>
+          <li><a href="/top5/news.php"> NEWS </a></li>
+          <li><a href="/top5/events.php"> EVENTS </a></li>
+          <li><a href="/top5/careers.php"> CAREERS </a></li>
+          <li><a href="/top5/newsletter.php"> NEWSLETTER </a></li>
+          <li><a href="/top5/contacts.php"> CONTACTS </a></li>
+        </ul>
+      </nav>
+    </header>
+    {% if body_class == 'indexpage' %}
+    <div class="menu_banner top5Menu">
+      <a id="myBtn1" class="menuButtons" data-category='resto-bars'>RESTO BARS</a>
+      <a id="myBtn2" class="menuButtons" data-category='cheap-eats'>CHEAP EATS</a>
+      <a id="myBtn3" class="menuButtons" data-category='tourist-attractions'>TOURIST ATTRACTIONS</a>
+      <a id="myBtn4" class="menuButtons" data-category='nightclubs'>NIGHTCLUBS</a>
+      <a id="myBtn5" class="menuButtons" data-category='activities-under-10$'>ACTIVITIES UNDER 10$</a>
+      <a id="myBtn6" class="menuButtons" data-category='poutines'>POUTINES</a>
+      <a id="myBtn7" class="menuButtons" data-category='free-stuff'>FREE STUFF</a>
+      <a id="myBtn8" class="menuButtons" data-category='best-views-of-mtl'>BEST VIEWS OF MTL</a>
+      <a id="myBtn9" class="menuButtons" data-category='yearly-events'>YEARLY EVENTS</a>
+    </div>
+    {% endif %}
+  </section>
+  {% block content %} Content of the page... {% endblock %}
+  <script src='js/jquery.js'></script>
+  <script>
+    // Listen to clicks for each button
+    $(".menuButtons").each(function (index, element) {
+
+      // When a button is clicked, we read the data-category attribute to make a request to the correct URL
+      $(element).click(function () {
+        var category = $(element).attr("data-category");
+        var title = $(element).html();
+        loadCategory(category, title); // Load the category data into the modal
+      })
+    });
+
+    // Load category data into a modal
+    function loadCategory(name, title) {
+      $.ajax({
+        url: baseUrl + "/places?category=" + name,
+        context: document.body,
+        dataType: 'json',
+      }).done(function (data) {
+        createmodal(data, title);
+      });
+    }
+
+    // Create a modal and fill it with data
+    function createmodal(data, title) {
+
+      console.log(data);
+
+      var modalContent = '';
+
+      modalContent += '<div class="places cf">';
+      for (var i = 0; i < data.length; i++) {
+        modalContent += '<div class="place">';
+          modalContent += '<div class="place__img" style="background-image: url(\'' + data[i].photo + '\');"></div>';
+          modalContent += '<div class="place__content">';
+            modalContent += '<p class="place__name">' + data[i].name + '</p>';
+            modalContent += '<p class="place__address">' + data[i].address + '</p>';
+            modalContent += '<p>' + data[i].description + '</p>';
+            modalContent += '<p>' + '<b>' + 'Rating: ' + '</b>' + data[i].rating + '</p>';
+            modalContent += '<p class="place__reviews">Reviews</p>';
+            for(var j = 0; j < data[i].reviews.length; j++) {
+              modalContent += '<div class="review">';
+                modalContent += '<p class="review__user">' + data[i].reviews[j].author.name + '</p>';
+                modalContent += '<p class="review__rating">' + data[i].reviews[j].rating + '</p>';
+                modalContent += '<p class="review__message">' + data[i].reviews[j].message + '</p>';
+              modalContent += '</div>';
+            }
+          modalContent += '</div>';
+        modalContent += '</div>';
+      }
+      modalContent += '</div>';
+
+      // Modal HTML structure
+      var modal = $(
+        '<div class="modal" style="display:block">'+
+          '<div class=modal-content>' +
+            '<div class=modal-header>' +
+              '<span class=close>&times;</span>' +
+              '<h2>' + title + '</h2>' +
+
+            '</div>' +
+            '<div class=modal-body>' + modalContent + '</div>' +
+          '</div>' +
+        '</div>');
+
+      $('#inject-here').append(modal);
+
+      // Get the modal
+      var modal = $('.modal');
+
+      // Get the <span> element that closes the modal
+      var span = $(".close");
+
+      // When the user clicks on <span> (x), close the modal
+      span.on('click', function () {
+        $(modal).css({
+          display: 'none'
+        });
+      });
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if ($(event.target).hasClass('modal')) {
+          $(modal).css({
+            display: 'none'
+          });
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>

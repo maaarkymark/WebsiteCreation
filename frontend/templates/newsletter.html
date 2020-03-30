@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <section class="newsletter" id="newsletter">
+    <h1>NEWSLETTER</h1>
+    <p class="line"></p>
+    <form action="/action_page.php">
+      <div class="container">
+        <label><b>E-mail</b></label>
+        <input type="text" placeholder="Your e-mail..." name="email" required>
+
+        <div class="clearfix">
+          <input type="submit" value="Submit">
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}

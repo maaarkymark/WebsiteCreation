@@ -1,0 +1,48 @@
+The backend can be simply copied into a xampp folder. You will need to import the provided SQL file (backend_dump.sql). It was tested on PHP5.5
+
+The frontend can also be simply copied into a xampp folder. If you want to connect to the backend directly, change the baseUrl to your local backend server in the templates/layout.html file on line 15. If you run into compatibility issues between twig & php, follow the detailed steps below:
+
+1. Once zip file for our website is downloaded, install Twig PHP package and other dependencies using Composer. PHP, Apache and Composer are required to run the website.
+
+
+2. Unzip file (if not done yet) and move folder into “htdocs” folder in “/XAMPP/xamppfiles/“ directory.
+
+
+3. Open Terminal (on MAC) or Command Prompt (on Windows).
+
+
+4. Copy and paste code to verify PHP version. (this info is needed for step 8):
+
+php -v
+
+
+5. Copy and paste block of code to download and install latest version of Composer. (if there’s an error, copy and paste it from this website: https://getcomposer.org/download/)
+
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+
+6. Copy and paste code to move “Composer.phar” file to this folder:
+
+sudo mv composer.phar /usr/local/bin/composer
+
+
+7. Go into directory where “Top 5 website” folder was saved earlier:
+
+cd …/XAMPP/xamppfiles/htdocs/“folder name”
+
+
+8. Copy and paste code in your terminal to install latest version of Twig PHP package:
+
+composer require "twig/twig:^2.0" (For PHP version 7.0.0 and up)
+
+composer require "twig/twig:~1.0" (For PHP version 5.6.30)
+
+
+9. Our website can now be viewed from your browser by typing the URL: localhost/“folder name”/“filename”
+
+
+10. Enjoy our website! =)
+

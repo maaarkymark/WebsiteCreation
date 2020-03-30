@@ -1,0 +1,523 @@
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.logo {
+  display: block;
+  float: left;
+}
+
+.logo__img {
+  display: block;
+  width: 90px;
+  height: auto;
+}
+
+.top5Menu {
+  background-color: #262626;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.menu_banner {
+  color: white;
+  background-color: #000;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: table;
+}
+
+.bottom_banner {
+  color: black;
+  background-color: #262626;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  list-style: none;
+}
+
+.tab_right {
+  margin-right: 10px;
+  text-align: right;
+  float: right;
+}
+
+.line {
+  width: 100px;
+  background-color: darkgray;
+  height: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.openPositions {
+  margin-top: 40px;
+}
+
+header {
+  padding: 10px;
+  background: #000;
+  line-height: 25px;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-align: center;
+  font-size: 12px;
+}
+
+.menu ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+.menu li {
+  height: 100%;
+  display: inline-block;
+}
+
+.menu ul li a {
+  padding: 30px 10px;
+  box-sizing: border-box;
+  height: 100%;
+  text-decoration: none;
+  margin: 0px;
+  color: #999;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu ul li a:after {
+  content: " ";
+  position: absolute;
+  height: 4px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffcc00;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: #ffffff;
+}
+
+.menu ul li a:hover:after {
+  opacity: 1;
+}
+
+a {
+  color: #336699;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 15px Cambria, Serif;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  overflow-x: hidden;
+}
+
+body.aboutpage {
+  background-color: whitesmoke;
+  vertical-align: middle;
+  padding-bottom: 50px;
+}
+
+.about {
+  text-align: center;
+  padding-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+body.newspage {
+  background-color: lightgray;
+  vertical-align: middle;
+  padding-bottom: 50px;
+}
+
+.news {
+  text-align: center;
+  padding-top: 50px;
+}
+
+body.eventspage {
+  background-color: gray;
+  vertical-align: middle;
+  padding-bottom: 50px;
+}
+
+.events {
+  text-align: center;
+  padding-top: 50px;
+}
+
+body.careerspage {
+  background-color: lightgray;
+  vertical-align: middle;
+  padding-bottom: 50px;
+}
+
+.careers {
+  text-align: center;
+  padding-top: 50px;
+}
+
+body.newsletterpage {
+  background-color: whitesmoke;
+  vertical-align: middle;
+  padding-bottom: 50px;
+}
+
+.newsletter {
+  text-align: center;
+  padding-top: 50px;
+}
+
+body.contactspage {
+  background-color: gray;
+  vertical-align: middle;
+  padding-bottom: 50px;
+}
+
+.contacts {
+  text-align: center;
+  padding-top: 50px;
+}
+
+h1 {
+  font: 36px Georgia, Serif;
+}
+
+.space {
+  margin-top: 15px;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding: 100px 0;
+  box-sizing: border-box;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+  position: relative;
+  background-color: #2b2b2b;
+  color: #fff;
+  margin: auto;
+  padding: 0;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.place {
+  margin-bottom: 50px;
+  width: 50%;
+  float: left;
+}
+
+.place:nth-child(2n+1) {
+  clear: left;
+}
+
+.place__img {
+  padding-bottom: 56.25%;
+  background-size: cover;
+  background-position: center;
+}
+
+.place__content {
+  padding: 30px;
+}
+
+.place__content p {
+  margin-bottom: 10px;
+}
+
+.place__name {
+  font-size: 24px;
+}
+
+.place__reviews {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.place__address {
+  color: #999;
+}
+
+.review__user {
+  color: #999;
+}
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+
+/* The Close Button */
+
+.close {
+  color: #000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 8px 16px;
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.modal-body {
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+
+/* Buttons */
+
+.menuButtons {
+  display: table-cell;
+  text-align: center;
+  cursor: pointer;
+  color: #999;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 0;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menuButtons:hover {
+  color: #fff;
+}
+
+.menuButtons:hover:after {
+  opacity: 1;
+}
+
+.menuButtons:after {
+  content: " ";
+  position: absolute;
+  height: 4px;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #ffcc00;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.menuButtons:active {
+  position: relative;
+  top: 1px;
+}
+
+
+/* Add padding to container elements */
+
+.container {
+  padding: 16px;
+}
+
+
+/* Clear floats */
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* Change styles for signup button on extra small screens */
+
+@media screen and (max-width: 300px) {
+  .signupbtn {
+    width: 100%;
+  }
+}
+
+
+/* Style inputs with type="text", select elements and textareas */
+
+input[type=text],
+select,
+textarea {
+  width: 50%;
+  /* Full width */
+  padding: 12px;
+  /* Some padding */
+  border: 1px solid #ccc;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded borders */
+  box-sizing: border-box;
+  /* Allow the user to vertically resize the textarea (not horizontally) */
+  resize: vertical;
+  display: block;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+/* Style the submit button with a specific background color etc */
+
+input[type=submit] {
+  background-color: #262626;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+
+/* When moving the mouse over the submit button, add a darker green color */
+
+input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #262626;
+}
+
+
+/* Add a background color and some padding around the form */
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#map {
+  height: calc(100% - 91px);
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.infobox {
+  padding: 10px;
+}
+
+.infobox__title {
+  font-size: 16px;
+}
+
+.infobox__description {
+  margin: 8px 0 0 0;
+}

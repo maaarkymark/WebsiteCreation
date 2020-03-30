@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section class="contacts" id="contacts">
+    <h1>CONTACTS</h1>
+    <p class="line"></p>
+    <div>
+        <h5>Address Details</h5>
+        123 St-Catherine E., Montreal, QC<br>
+        H1R 2L3<br>
+        7 days a week: 10pm - 9pm EST<br>
+        Phone #: 514 123-4567<br>
+        Fax #: 514 987-6543
+    </div>
+
+    <div class="container">
+        <form action="/action_page.php">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..." name="name" required>
+
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" name="email" placeholder="Your e-mail..." name="email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Your subject...">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message..." style="height:200px" name="message" required></textarea>
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</section>
+{% endblock %}
